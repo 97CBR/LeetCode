@@ -11,7 +11,6 @@ class Solution:
 
     def toLowerCase(self, str: str) -> str:
         s = list(str)
-
         r=""
         for k in s:
             try:
