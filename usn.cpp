@@ -7,6 +7,9 @@
 #include <string>
 #include <time.h>
 #include <winternl.h>
+#include <winbase.h>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 char *volName = "w:\\";
@@ -16,6 +19,8 @@ USN_JOURNAL_DATA UsnInfo; // 储存USN日志的基本信息
 
 ofstream fout("E:\\log.txt");
 long counter = 0;
+
+vector<DWORDLONG> G_element_node;
 
 //首先进行函数类型的定义
 
@@ -72,33 +77,41 @@ int file_type(char *patName, char *relName)
 	return flag;
 }
 
+HMODULE load_ntdll(HMODULE hmodule)
+{
+	LPCSTR MYDLL = "ntdll.dll";
+	hmodule = LoadLibrary(MYDLL);
+	if (!hmodule)
+		cout << "载入ntdll.dll失败" << endl
+			 << endl;
+	return hmodule;
+}
+
 //volume_handle为使用CreateFile获得的卷句柄
 void get_path_from_frn(HANDLE &volume_handle, DWORDLONG frn)
 {
 	//Nt函数的导出
 
 	HMODULE hmodule = NULL;
-	hmodule = LoadLibrary("ntdll.dll");
-	if (hmodule)
-		cout << "载入ntdll.dll成功" << endl
-			 << endl;
+
+	hmodule = load_ntdll(hmodule);
 
 	NTCREATEFILE NtCreateFile = NULL;
 	NtCreateFile = (NTCREATEFILE)GetProcAddress(hmodule, "NtCreateFile");
-	if (NtCreateFile)
-		cout << "导出NtCreateFile函数成功" << endl
+	if (!NtCreateFile)
+		cout << "导出NtCreateFile函数失败" << endl
 			 << endl;
 
 	NTQUERYINFORMATIONFILE NtQueryInformationFile = NULL;
 	NtQueryInformationFile = (NTQUERYINFORMATIONFILE)GetProcAddress(hmodule, "NtQueryInformationFile");
-	if (NtQueryInformationFile)
-		cout << "导出NtQueryInformationFile函数成功" << endl
+	if (!NtQueryInformationFile)
+		cout << "导出NtQueryInformationFile函数失败" << endl
 			 << endl;
 
 	NTCLOSE NtClose = NULL;
 	NtClose = (NTCLOSE)GetProcAddress(hmodule, "NtClose");
-	if (NtClose)
-		cout << "导出NtClose函数成功" << endl
+	if (!NtClose)
+		cout << "导出NtClose函数失败" << endl
 			 << endl;
 
 	//各种所需变量的定义
@@ -168,7 +181,7 @@ void get_path_from_frn(HANDLE &volume_handle, DWORDLONG frn)
 	// CloseHandle(volume_handle);//关闭卷句柄
 }
 
-int main()
+void watch_usn()
 {
 	BOOL status;
 	BOOL isNTFS = false;
@@ -307,6 +320,9 @@ int main()
 			DWORD usnDataSize;
 			PUSN_RECORD UsnRecord;
 			long clock_start = clock();
+
+			vector<DWORDLONG> element_node;
+			vector<DWORDLONG> tmp_vector;
 			while (0 != DeviceIoControl(hVol,
 										FSCTL_ENUM_USN_DATA,
 										&med,
@@ -332,7 +348,12 @@ int main()
 					////cout<< "FilePath: " << filePath << "\n\n";
 					if (file_type(".cpp", fileName))
 					{
-						get_path_from_frn(hVol, UsnRecord->FileReferenceNumber);
+
+						element_node.push_back(UsnRecord->FileReferenceNumber);
+
+						// 获取文件路径
+						// get_path_from_frn(hVol, UsnRecord->FileReferenceNumber);
+
 						fout << "FileName:" << fileName << endl;
 						fout << "file type" << UsnRecord->FileAttributes << endl;
 						fout << "FileReferenceNumber:" << UsnRecord->FileReferenceNumber << endl;
@@ -350,7 +371,46 @@ int main()
 				}
 				med.StartFileReferenceNumber = *(USN *)&buffer;
 			}
+
+			std::sort(element_node.begin(), element_node.end());
+			tmp_vector = element_node;
 			cout << "共" << counter << "个文件\n";
+
+			if (G_element_node.size() == 0)
+			{
+				G_element_node = element_node;
+				G_element_node.erase(G_element_node.begin() + 2345);
+			}
+			int gn = G_element_node.size();
+			int sn = element_node.size();
+			if (gn != sn)
+			{
+				cout << "文件有变更 变更数为:" << sn - gn << endl;
+				vector<DWORDLONG> change_file_node;
+
+				for (int index = 0; index < G_element_node.size(); index++)
+				{
+					if (G_element_node.at(index) != tmp_vector.at(index))
+					{
+						change_file_node.push_back(tmp_vector.at(index));
+						tmp_vector.erase(tmp_vector.begin() + index);
+					}
+				}
+				while (G_element_node.size() != tmp_vector.size())
+				{
+
+					change_file_node.push_back(tmp_vector.at(tmp_vector.size() - 1));
+					tmp_vector.erase(tmp_vector.end() - 1);
+				}
+				cout << "num" << change_file_node.size() << endl;
+
+				for (int i = 0; i < change_file_node.size(); i++)
+				{
+					cout << change_file_node.at(i) << endl;
+					get_path_from_frn(hVol, change_file_node.at(i));
+				}
+			}
+			G_element_node = element_node;
 			long clock_end = clock();
 			cout << "花费" << clock_end - clock_start << "毫秒" << endl;
 			fout << "共" << counter << "个文件" << endl;
@@ -387,7 +447,16 @@ int main()
 	{
 		CloseHandle(hVol);
 	} //释放资源
+}
 
+int main()
+{
+	while (1)
+	{
+		watch_usn();
+		Sleep(10000);
+		// watch_usn();
+	}
 	//MessageBox(0, L"按确定退出", L"结束", MB_OK);
 	// getchar();
 	return 0;

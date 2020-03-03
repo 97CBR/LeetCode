@@ -32,7 +32,16 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "E:\\mingw64\\include/**",
-                "E:\\mingw64\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include/**"
+                "E:\\mingw64\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include/**",
+                "E:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.16.27023\\include/**",
+                "E:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.16.27023\\atlmfc\\include/**",
+                "E:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\VS\\include/**",
+                "E:\\Windows Kits\\10\\Include\\10.0.17763.0\\ucrt/**",
+                "E:\\Windows Kits\\10\\Include\\10.0.17763.0\\um/**",
+                "E:\\Windows Kits\\10\\Include\\10.0.17763.0\\shared/**",
+                "E:\\Windows Kits\\10\\Include\\10.0.17763.0\\winrt/**",
+                "E:\\Windows Kits\\10\\Include\\10.0.17763.0\\cppwinrt/**",
+                "C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\Include\\um/**"
             ],
             "defines": [
                 "_DEBUG",
