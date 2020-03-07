@@ -80,7 +80,10 @@
 			"map": "cpp",
 			"memory_resource": "cpp",
 			"set": "cpp",
-			"*.idl": "cpp"
+			"*.idl": "cpp",
+			"xmemory0": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp"
 		},
 		"http.proxy": "http://127.0.0.1:1080"
 	}

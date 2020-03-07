@@ -8,8 +8,30 @@
 
 using namespace std;
 
+std::vector<string> split(std::string &str, const std::string &delims = " ")
+{
+    std::vector<std::string> output;
+
+    while (str.find_first_of(',') != str.npos)
+    {
+        int index = str.find_last_of(',');
+        string tmp = str.substr(index + 1, str.length());
+        str = str.substr(0, index);
+        cout << tmp << endl;
+        output.emplace_back(tmp);
+    }
+    cout << str << endl;
+    output.emplace_back(str);
+    return output;
+}
+
 int main()
 {
+
+    string ft = ".docx,.pptx,.pdf,.png";
+    std::vector<std::string> ftv;
+    ftv = split(ft, "");
+    cout << ftv.size()<< endl;
     vector<vector<int>> tst;
     vector<int> t;
     t.push_back(1);
@@ -36,9 +58,9 @@ int main()
     string tes = "curl.exe -X POST https://content.dropboxapi.com/2/files/upload /willbereplace_1 good string --data - binary @willbereplace_2";
     string name = "2s3523zxcvxczvzxc5.exe";
     string mypath = "E:/www.dropbox.com/developers/documentation.EXE";
-    tes = tes.replace(tes.find("willbereplace_1"), 15 ,name);
-    tes = tes.replace(tes.find("willbereplace_2"), 15 ,mypath);
-    cout << tes <<endl;
+    tes = tes.replace(tes.find("willbereplace_1"), 15, name);
+    tes = tes.replace(tes.find("willbereplace_2"), 15, mypath);
+    cout << tes << endl;
 
     time_t myt = time(NULL);
 
@@ -46,7 +68,7 @@ int main()
     sprintf(time_string, "%d_", myt);
     string file_name = "asfasgd.zip";
     file_name = time_string + file_name;
-    cout << file_name<<endl;
+    cout << file_name << endl;
 
     string res_command = "curl.exe -X POST https://content.dropboxapi.com/2/files/upload "
                          "--header \"Authorization: Bearer wO-OKXR2pZAAAAAAAAAAEO5hiDcFqdWDVCGX1R7jJBKR-Gj3koTd3Xob2jkq55dV\""
@@ -54,9 +76,7 @@ int main()
                          "\\\"mute\\\": false,\\\"strict_conflict\\\": false}\" --header \"Content-Type: application/octet-stream\" --data - binary @W:\\test_add_file.zip";
 
     cout << res_command << endl;
-
 }
-
 
 // #include <stdio.h>
 // #include <curl/curl.h>

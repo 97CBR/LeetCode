@@ -1,0 +1,42 @@
+filename, language, C++, JSON with Comments, Markdown, Python, XML, C, comment, blank, total
+w:\LeetCode\.idea\LeetCode.iml, XML, 0, 0, 0, 0, 12, 0, 0, 0, 12
+w:\LeetCode\.idea\deployment.xml, XML, 0, 0, 0, 0, 14, 0, 0, 0, 14
+w:\LeetCode\.idea\inspectionProfiles\Project_Default.xml, XML, 0, 0, 0, 0, 19, 0, 0, 0, 19
+w:\LeetCode\.idea\misc.xml, XML, 0, 0, 0, 0, 7, 0, 0, 0, 7
+w:\LeetCode\.idea\modules.xml, XML, 0, 0, 0, 0, 8, 0, 0, 0, 8
+w:\LeetCode\.idea\vcs.xml, XML, 0, 0, 0, 0, 6, 0, 0, 0, 6
+w:\LeetCode\.idea\workspace.xml, XML, 0, 0, 0, 0, 564, 0, 0, 0, 564
+w:\LeetCode\132模式.py, Python, 0, 0, 0, 38, 0, 0, 9, 14, 61
+w:\LeetCode\3sum.cpp, C++, 44, 0, 0, 0, 0, 0, 2, 7, 53
+w:\LeetCode\CVTE笔试\第一题.py, Python, 0, 0, 0, 3, 0, 0, 4, 2, 9
+w:\LeetCode\CVTE笔试\第三题.py, Python, 0, 0, 0, 0, 0, 0, 4, 2, 6
+w:\LeetCode\CVTE笔试\第二题.py, Python, 0, 0, 0, 0, 0, 0, 4, 2, 6
+w:\LeetCode\LeetCode.code-workspace, JSON with Comments, 0, 90, 0, 0, 0, 0, 0, 0, 90
+w:\LeetCode\LeetCodeC++\LeetCodeC++\LeetCodeC++.cpp, C++, 10, 0, 0, 0, 0, 0, 59, 8, 77
+w:\LeetCode\LeetCodeC++\LeetCodeC++\LeetCodeC++.vcxproj, XML, 0, 0, 0, 0, 159, 0, 0, 0, 159
+w:\LeetCode\LeetCodeC++\LeetCodeC++\test.c, C, 0, 0, 0, 0, 0, 5, 0, 1, 6
+w:\LeetCode\README.md, Markdown, 0, 0, 3, 0, 0, 0, 0, 1, 4
+w:\LeetCode\Temp.py, Python, 0, 0, 0, 68, 0, 0, 10, 6, 84
+w:\LeetCode\findMedianSortedArrays.cpp, C++, 97, 0, 0, 0, 0, 0, 36, 19, 152
+w:\LeetCode\leetcode-cn_回文素数.py, Python, 0, 0, 0, 84, 0, 0, 47, 9, 140
+w:\LeetCode\string-to-integer-atoi.cpp, C++, 207, 0, 0, 0, 0, 0, 19, 27, 253
+w:\LeetCode\tempCodeRunnerFile.cpp, C++, 2, 0, 0, 0, 0, 0, 0, 0, 2
+w:\LeetCode\tmp.cpp, C++, 66, 0, 0, 0, 0, 0, 33, 26, 125
+w:\LeetCode\usn.cpp, C++, 361, 0, 0, 0, 0, 0, 46, 65, 472
+w:\LeetCode\华为面试1.py, Python, 0, 0, 0, 20, 0, 0, 6, 3, 29
+w:\LeetCode\华为面试2.py, Python, 0, 0, 0, 84, 0, 0, 16, 5, 105
+w:\LeetCode\各位相加.py, Python, 0, 0, 0, 38, 0, 0, 9, 9, 56
+w:\LeetCode\回文素数.py, Python, 0, 0, 0, 49, 0, 0, 31, 11, 91
+w:\LeetCode\字符串转换整数 (atoi).py, Python, 0, 0, 0, 82, 0, 0, 10, 11, 103
+w:\LeetCode\宝石与石头.py, Python, 0, 0, 0, 32, 0, 0, 6, 10, 48
+w:\LeetCode\最近回文数.py, Python, 0, 0, 0, 95, 0, 0, 27, 13, 135
+w:\LeetCode\有序数组的平方.py, Python, 0, 0, 0, 33, 0, 0, 5, 12, 50
+w:\LeetCode\独特的电子邮件地址.py, Python, 0, 0, 0, 41, 0, 0, 11, 11, 63
+w:\LeetCode\索引处的解码字符串.py, Python, 0, 0, 0, 39, 0, 0, 12, 11, 62
+w:\LeetCode\翻转字符串里的单词.py, Python, 0, 0, 0, 34, 0, 0, 9, 9, 52
+w:\LeetCode\装饰器.py, Python, 0, 0, 0, 70, 0, 0, 72, 15, 157
+w:\LeetCode\超级回文数.py, Python, 0, 0, 0, 43, 0, 0, 14, 9, 66
+w:\LeetCode\转换成小写字母.py, Python, 0, 0, 0, 36, 0, 0, 4, 12, 52
+w:\LeetCode\键盘行.py, Python, 0, 0, 0, 57, 0, 0, 6, 15, 78
+w:\LeetCode\验证IP地址.py, Python, 0, 0, 0, 85, 0, 0, 11, 11, 107
+Total, -, 787, 90, 3, 1031, 789, 5, 522, 356, 3583
