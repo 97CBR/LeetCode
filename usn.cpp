@@ -12,9 +12,7 @@
 #include <algorithm>
 
 using namespace std;
-char *volName = "w:\\";
-HANDLE hVol;
-USN_JOURNAL_DATA UsnInfo; // 储存USN日志的基本信息
+
 #define BUF_LEN 4096
 
 ofstream fout("E:\\log.txt");
@@ -45,7 +43,10 @@ typedef NTSTATUS(NTAPI *NTQUERYINFORMATIONFILE)(
 	FILE_INFORMATION_CLASS FileInformationClass);
 
 typedef NTSTATUS(NTAPI *NTCLOSE)(
+
 	IN HANDLE Handle);
+
+
 
 int file_type(char *patName, char *relName)
 {
@@ -181,7 +182,7 @@ void get_path_from_frn(HANDLE &volume_handle, DWORDLONG frn)
 	// CloseHandle(volume_handle);//关闭卷句柄
 }
 
-void watch_usn()
+void watch_usn(char *volName, HANDLE hVol, USN_JOURNAL_DATA UsnInfo)
 {
 	BOOL status;
 	BOOL isNTFS = false;
@@ -425,14 +426,14 @@ void watch_usn()
 		dujd.DeleteFlags = USN_DELETE_FLAG_DELETE;
 
 		status = 0;
-		// status = DeviceIoControl(hVol,
-		// 	FSCTL_DELETE_USN_JOURNAL,
-		// 	&dujd,
-		// 	sizeof(dujd),
-		// 	NULL,
-		// 	0,
-		// 	&br,
-		// 	NULL);
+		status = DeviceIoControl(hVol,
+								 FSCTL_DELETE_USN_JOURNAL,
+								 &dujd,
+								 sizeof(dujd),
+								 NULL,
+								 0,
+								 &br,
+								 NULL);
 
 		if (0 != status)
 		{
@@ -451,12 +452,20 @@ void watch_usn()
 
 int main()
 {
-	while (1)
-	{
-		watch_usn();
-		Sleep(10000);
-		// watch_usn();
-	}
+	char *volName = "w:\\";
+	// memset(volName, 0, sizeof(volName)/sizeof(char *));
+	HANDLE hVol;
+	USN_JOURNAL_DATA UsnInfo; // 储存USN日志的基本信息
+	watch_usn(volName, hVol, UsnInfo);
+	// Sleep(10000);
+	// char *dv = "d:\\";
+	// watch_usn(dv, hVol, UsnInfo);
+
+	// while (1)
+	// {
+
+	// 	// watch_usn();
+	// }
 	//MessageBox(0, L"按确定退出", L"结束", MB_OK);
 	// getchar();
 	return 0;
