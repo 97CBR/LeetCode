@@ -8,6 +8,28 @@
 
 using namespace std;
 
+class test_class
+{
+private:
+    /* data */
+public:
+    test_class(/* args */);
+    void gg();
+    ~test_class();
+};
+
+test_class::test_class(/* args */)
+{
+}
+
+void test_class::gg(/* args */)
+{
+}
+
+test_class::~test_class()
+{
+}
+
 std::vector<string> split(std::string &str, const std::string &delims = " ")
 {
     std::vector<std::string> output;
@@ -27,11 +49,21 @@ std::vector<string> split(std::string &str, const std::string &delims = " ")
 
 int main()
 {
+    test_class *a;
+    cout << sizeof(a->gg()) << endl;
+}
+
+void tmp_1()
+{
+    for (float i = 0.0000; i != 1.0000; i += 0.1)
+    {
+        cout << i << endl;
+    }
 
     string ft = ".docx,.pptx,.pdf,.png";
     std::vector<std::string> ftv;
     ftv = split(ft, "");
-    cout << ftv.size()<< endl;
+    cout << ftv.size() << endl;
     vector<vector<int>> tst;
     vector<int> t;
     t.push_back(1);
