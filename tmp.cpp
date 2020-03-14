@@ -47,12 +47,46 @@ std::vector<string> split(std::string &str, const std::string &delims = " ")
     output.emplace_back(str);
     return output;
 }
-
+// test_class *a;
+// cout << sizeof(a->gg()) << endl;
 int main()
 {
-    // test_class *a;
-    // cout << sizeof(a->gg()) << endl;
+    int sx, sy, tx, ty = 0;
+    sx = 1;
+    sy = 2;
+    tx = 3;
+    ty = 5;
+    if (tx == ty && sx == tx && ty == sy)
+    {
+        cout << "start is target" << endl;
+        return 1;
+    }
+    if (tx != ty)
+    {
+        int ax = 1;
+        int ay = 2;
+        do
+        {
+            int tmp_p = sx + sy;
+            int rex = abs(tx - ty);
+            ax = tx > ty ? rex : tx;
+            ay = tx > ty ? ty : rex;
+            cout << "pre sept" << ax << "\t" << ay << endl;
+            tx = ax;
+            ty = ay;
+            if (ax == sx && ay == sy)
+            {
+                cout << "you can do it" << endl;
+                break;
+            }
+        } while (ax != ay);
+    }
+    cout << "you can't do it" << endl;
+    return 0;
+}
 
+int lengthOfLIS()
+{
     vector<int> ftv = {10, 9, 2, 5, 3, 7, 101, 18};
     if (ftv.size() < 1)
     {
@@ -86,8 +120,6 @@ int main()
     sort(res.begin(), res.end(), [](const vector<int> &a1, const vector<int> &a2) {
         return a1.size() > a2.size();
     });
-
-    return 0;
 }
 
 void tmp_1()
