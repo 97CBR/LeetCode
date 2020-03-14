@@ -5,6 +5,7 @@
 #include <string>
 #include <map>
 #include <time.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -49,8 +50,44 @@ std::vector<string> split(std::string &str, const std::string &delims = " ")
 
 int main()
 {
-    test_class *a;
-    cout << sizeof(a->gg()) << endl;
+    // test_class *a;
+    // cout << sizeof(a->gg()) << endl;
+
+    vector<int> ftv = {10, 9, 2, 5, 3, 7, 101, 18};
+    if (ftv.size() < 1)
+    {
+        return 0;
+    }
+    if (ftv.size() == 1)
+    {
+        return 1;
+    }
+    int x, y = 0;
+    vector<vector<int>> res;
+    for (int i = 0; i < ftv.size(); i++)
+    {
+        x = ftv.at(i);
+        vector<int> tmp_res;
+        tmp_res.push_back(x);
+        for (int j = i + 1; j < ftv.size(); j++)
+        {
+            y = ftv.at(j);
+            if (x < y)
+            {
+                x = y;
+                tmp_res.push_back(x);
+            }
+        }
+
+        res.push_back(tmp_res);
+        // break;
+        // }
+    }
+    sort(res.begin(), res.end(), [](const vector<int> &a1, const vector<int> &a2) {
+        return a1.size() > a2.size();
+    });
+
+    return 0;
 }
 
 void tmp_1()
