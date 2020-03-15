@@ -5,9 +5,11 @@
 #include <string>
 #include <map>
 #include <time.h>
+// #include <ext/hash_map>
 #include <algorithm>
 
 using namespace std;
+using namespace __gnu_cxx;
 
 class test_class
 {
@@ -49,7 +51,96 @@ std::vector<string> split(std::string &str, const std::string &delims = " ")
 }
 // test_class *a;
 // cout << sizeof(a->gg()) << endl;
+
+void eight_find(vector<int> &tmp_all, vector<vector<int>> &points, int x, int y)
+{
+    for (int j = -1; j < 2; j++)
+    {
+        for (int k = -1; k < 2; k++)
+        {
+            if (j == 0 && k == 0)
+            {
+                continue;
+            }
+
+            vector<int> tmp;
+            int tmp_x = x + j;
+            int tmp_y = y + k;
+            // cout << "八方向" << tmp_x << "\t" << tmp_y << endl;
+            tmp.push_back(tmp_x);
+            tmp.push_back(tmp_y);
+            vector<vector<int>>::iterator index = find(points.begin(), points.end(), tmp);
+
+            // vector<int>::iterator sf = find(tmp_all.begin(), tmp_all.end(), tmp);
+            if (index != points.end() /* && index_2 == tmp_all.end()*/)
+            {
+                cout << "yes" << endl;
+                tmp_all.push_back(tmp_x);
+                tmp_all.push_back(tmp_y);
+                eight_find(tmp_all, points, tmp_x, tmp_y);
+            }
+        }
+    }
+}
+
 int main()
+{
+    vector<vector<int>> points = {{1, 1},
+                                  {3, 2},
+                                  {5, 3},
+                                  {4, 1},
+                                  {2, 3},
+                                  {1, 4}};
+    // map<int, int> exists_points;
+    // for (int i = 0; i < points.size(); i++)
+    // {
+    //     int x = points.at(i)[0];
+    //     int y = points.at(i)[1];
+
+    //     cout << "x-y" << x << y << endl;
+    //     exists_points.insert(pair<int, int>(x, y));
+    // }
+    vector<vector<float>> res_all_line;
+    for (int i = 0; i < points.size(); i++)
+    {
+        int x = points.at(i)[0];
+        int y = points.at(i)[1];
+
+        cout << "x-y"
+             << "\t" << x << "\t" << y << endl;
+        vector<float> tmp_all;
+        // a*查找不适用，在处理不连续点时错误
+        // eight_find(tmp_all, points, x, y);
+        for (int j = 0; j < points.size(); j++)
+        {
+            if (j == i)
+            {
+                continue;
+            }
+            int sx = points.at(j)[0];
+            int sy = points.at(j)[1];
+            float ang = 0.0;
+            if ((sx - x) != 0)
+            {
+                ang = (sy - y) * 1.0 / (sx - x) * 1.0;
+            }
+            else
+            {
+                ang = 0.0;
+            }
+
+            cout << "p1-p2\t" << sx << "\t" << sy << "\t" << ang << endl;
+            tmp_all.push_back(ang);
+        }
+        sort(tmp_all.begin(), tmp_all.end());
+        int repeat_num = count(tmp_all.begin(), tmp_all.end(), -1);
+        res_all_line.push_back(tmp_all);
+    }
+
+    return 0;
+}
+
+bool reachingPoints()
 {
     int sx, sy, tx, ty = 0;
     sx = 1;
@@ -84,7 +175,6 @@ int main()
     cout << "you can't do it" << endl;
     return 0;
 }
-
 int lengthOfLIS()
 {
     vector<int> ftv = {10, 9, 2, 5, 3, 7, 101, 18};
@@ -120,6 +210,7 @@ int lengthOfLIS()
     sort(res.begin(), res.end(), [](const vector<int> &a1, const vector<int> &a2) {
         return a1.size() > a2.size();
     });
+    return 0;
 }
 
 void tmp_1()
