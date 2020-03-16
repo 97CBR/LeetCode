@@ -3,8 +3,6 @@
 
 // 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
 
-
-
 // 示例 1：
 
 // 输入：head = [3,2,0,-4], pos = 1
@@ -26,7 +24,7 @@
 #include <list>
 #include <algorithm>
 
-        using namespace std;
+using namespace std;
 
 /**
  * Definition for singly-linked list.
