@@ -29,7 +29,7 @@
 #include <list>
 #include <algorithm>
 
-        using namespace std;
+using namespace std;
 
 class Solution
 {
@@ -62,7 +62,7 @@ public:
                     continue;
                 }
 
-                res_str +=  my_char + to_string(c);
+                res_str += my_char + to_string(c);
 
                 // S.replace(i, c, my_char + to_string(c));
 
@@ -96,7 +96,7 @@ int main()
     // string target = "rrrrrLLLLLPPPPPPRRRRRgggNNNNNVVVVVVVVVVDDDDDDDDDDIIIIIIIIIIlllllllAAAAqqqqqqqbbbNNNNffffff";
 
     Solution cbr;
-    cout <<cbr.compressString(target)<< endl;
+    cout << cbr.compressString(target) << endl;
 
     return 0;
 }
