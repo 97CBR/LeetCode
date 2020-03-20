@@ -1,6 +1,7 @@
 {
     "tasks": [
         {
+            "label": "gcc build",
             "type": "shell",
             "label": "g++.exe build active file",
             "command": "E:\\mingw64\\bin\\g++.exe",
@@ -13,7 +14,28 @@
             "options": {
                 "cwd": "E:\\mingw64\\bin"
             }
-        }
+        // },
+        // {
+        //     "label": "msvc build",
+        //     "type": "shell",
+        //     "command": "cl.exe",
+        //     "args": [
+        //         "/EHsc",
+        //         "/Zi",
+        //         "/Fe:",
+        //         "${file}",
+        //         "${fileBasenameNoExtension}.exe",
+        //         "cpprest.lib zlib.lib libeay32.lib ssleay32.lib winhttp.lib httpapi.lib bcrypt.lib crypt32.lib advapi32.lib gdi32.lib user32.lib"
+        //     ],
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     },
+        //     "presentation": {
+        //         "reveal": "always"
+        //     },
+        //     "problemMatcher": "$msCompile"
+        // }
     ],
     "version": "2.0.0"
 }
