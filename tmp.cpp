@@ -7,6 +7,10 @@
 #include <time.h>
 // #include <ext/hash_map>
 #include <algorithm>
+#include <string>
+// #include <atlconv.h>
+
+#pragma execution_character_set("utf-8")
 
 using namespace std;
 using namespace __gnu_cxx;
@@ -83,7 +87,30 @@ void eight_find(vector<int> &tmp_all, vector<vector<int>> &points, int x, int y)
     }
 }
 
+string exec(const char *cmd)
+{
+    FILE *pipe = popen(cmd, "r");
+    if (!pipe)
+        return "ERROR";
+    char buffer[128];
+    std::string result = "";
+    while (!feof(pipe))
+    {
+        if (fgets(buffer, 128, pipe) != NULL)
+            result += buffer;
+    }
+    pclose(pipe);
+    return result;
+}
+
 int main()
+{
+    string tmp = exec("dir");
+    cout << tmp;
+    return 0;
+}
+
+int max_line()
 {
     vector<vector<int>> points = {{1, 1},
                                   {3, 2},
@@ -270,28 +297,28 @@ void tmp_1()
     cout << res_command << endl;
 }
 
-Void reversal_list(mylist *a_list)
-{
-    mylist *forward_node = nullptr;
-    mylist *cur_node = a_list->next;
-    mylist *next_node = cur_node->next;
-    if (cur_node == nullptr)
-    {
-        return;
-    }
-    while (1)
-    {
-        cur_node->next = forward_node;
-        forward_node = cur_node;
-        cur_node = next_node;
-        if (cur_node == nullptr)
-        {
-            break;
-        }
-        next_node = cur_node->next;
-    }
-    a_list->next = forward_node;
-}
+// void reversal_list(mylist *a_list)
+// {
+//     mylist *forward_node = nullptr;
+//     mylist *cur_node = a_list->next;
+//     mylist *next_node = cur_node->next;
+//     if (cur_node == nullptr)
+//     {
+//         return;
+//     }
+//     while (1)
+//     {
+//         cur_node->next = forward_node;
+//         forward_node = cur_node;
+//         cur_node = next_node;
+//         if (cur_node == nullptr)
+//         {
+//             break;
+//         }
+//         next_node = cur_node->next;
+//     }
+//     a_list->next = forward_node;
+// }
 
 // #include <stdio.h>
 // #include <curl/curl.h>

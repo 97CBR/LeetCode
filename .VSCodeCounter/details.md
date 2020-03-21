@@ -1,10 +1,10 @@
 # Details
 
-Date : 2020-03-06 10:41:50
+Date : 2020-03-20 20:33:39
 
 Directory w:\LeetCode
 
-Total : 40 files,  2705 codes, 522 comments, 356 blanks, all 3583 lines
+Total : 57 files,  4020 codes, 1112 comments, 668 blanks, all 5800 lines
 
 [summary](results.md)
 
@@ -19,7 +19,7 @@ Total : 40 files,  2705 codes, 522 comments, 356 blanks, all 3583 lines
 | [.idea/vcs.xml](/.idea/vcs.xml) | XML | 6 | 0 | 0 | 6 |
 | [.idea/workspace.xml](/.idea/workspace.xml) | XML | 564 | 0 | 0 | 564 |
 | [132模式.py](/132模式.py) | Python | 38 | 9 | 14 | 61 |
-| [3sum.cpp](/3sum.cpp) | C++ | 44 | 2 | 7 | 53 |
+| [3sum.cpp](/3sum.cpp) | C++ | 158 | 27 | 21 | 206 |
 | [CVTE笔试/第一题.py](/CVTE笔试/第一题.py) | Python | 3 | 4 | 2 | 9 |
 | [CVTE笔试/第三题.py](/CVTE笔试/第三题.py) | Python | 0 | 4 | 2 | 6 |
 | [CVTE笔试/第二题.py](/CVTE笔试/第二题.py) | Python | 0 | 4 | 2 | 6 |
@@ -29,12 +29,29 @@ Total : 40 files,  2705 codes, 522 comments, 356 blanks, all 3583 lines
 | [LeetCodeC++/LeetCodeC++/test.c](/LeetCodeC++/LeetCodeC++/test.c) | C | 5 | 0 | 1 | 6 |
 | [README.md](/README.md) | Markdown | 3 | 0 | 1 | 4 |
 | [Temp.py](/Temp.py) | Python | 68 | 10 | 6 | 84 |
+| [compress-string-lcci.cpp](/compress-string-lcci.cpp) | C++ | 53 | 32 | 18 | 103 |
+| [duplicat-number.cpp](/duplicat-number.cpp) | C++ | 43 | 20 | 11 | 74 |
+| [duplicate-string.cpp](/duplicate-string.cpp) | C++ | 58 | 11 | 9 | 78 |
+| [find-words-that-can-be-formed-by-characters.cpp](/find-words-that-can-be-formed-by-characters.cpp) | C++ | 53 | 24 | 20 | 97 |
 | [findMedianSortedArrays.cpp](/findMedianSortedArrays.cpp) | C++ | 97 | 36 | 19 | 152 |
+| [handsomeZhan.cpp](/handsomeZhan.cpp) | C++ | 50 | 85 | 17 | 152 |
 | [leetcode-cn_回文素数.py](/leetcode-cn_回文素数.py) | Python | 84 | 47 | 9 | 140 |
+| [linked-list-cycle.cpp](/linked-list-cycle.cpp) | C++ | 63 | 28 | 23 | 114 |
+| [longest-increasing-subsequence.cpp](/longest-increasing-subsequence.cpp) | C++ | 60 | 22 | 15 | 97 |
+| [longest-palindromic-substring.cpp](/longest-palindromic-substring.cpp) | C++ | 37 | 5 | 9 | 51 |
+| [majority-element.cpp](/majority-element.cpp) | C++ | 43 | 31 | 20 | 94 |
+| [match-string.cpp](/match-string.cpp) | C++ | 27 | 4 | 9 | 40 |
+| [max-points-on-a-line.cpp](/max-points-on-a-line.cpp) | C++ | 81 | 42 | 19 | 142 |
+| [reaching-points.cpp](/reaching-points.cpp) | C++ | 88 | 57 | 25 | 170 |
+| [rectangle-overlap.cpp](/rectangle-overlap.cpp) | C++ | 54 | 21 | 17 | 92 |
+| [search-in-rotated-sorted-array.cpp](/search-in-rotated-sorted-array.cpp) | C++ | 128 | 21 | 27 | 176 |
+| [string-filter.cpp](/string-filter.cpp) | C++ | 36 | 8 | 7 | 51 |
 | [string-to-integer-atoi.cpp](/string-to-integer-atoi.cpp) | C++ | 207 | 19 | 27 | 253 |
-| [tempCodeRunnerFile.cpp](/tempCodeRunnerFile.cpp) | C++ | 2 | 0 | 0 | 2 |
-| [tmp.cpp](/tmp.cpp) | C++ | 66 | 33 | 26 | 125 |
+| [tempCodeRunnerFile.cpp](/tempCodeRunnerFile.cpp) | C++ | 0 | 20 | 0 | 20 |
+| [test-cpprestsdk.cpp](/test-cpprestsdk.cpp) | C++ | 73 | 107 | 17 | 197 |
+| [tmp.cpp](/tmp.cpp) | C++ | 248 | 51 | 41 | 340 |
 | [usn.cpp](/usn.cpp) | C++ | 361 | 46 | 65 | 472 |
+| [zui-xiao-de-kge-shu-lcof.cpp](/zui-xiao-de-kge-shu-lcof.cpp) | C++ | 74 | 9 | 20 | 103 |
 | [华为面试1.py](/华为面试1.py) | Python | 20 | 6 | 3 | 29 |
 | [华为面试2.py](/华为面试2.py) | Python | 84 | 16 | 5 | 105 |
 | [各位相加.py](/各位相加.py) | Python | 38 | 9 | 9 | 56 |
