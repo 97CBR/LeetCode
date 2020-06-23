@@ -103,10 +103,59 @@ string exec(const char *cmd)
     return result;
 }
 
+class marx
+{
+public:
+    marx();
+    ~marx();
+};
+marx::marx()
+{
+    cout << "create" << endl;
+}
+
+marx::~marx()
+{
+    cout << "destory" << endl;
+}
+
+void test_class()
+{
+    marx cbr;
+    marx *tina = new marx();
+    delete tina;
+}
+#include <functional>
+
 int main()
 {
-    string tmp = exec("dir");
-    cout << tmp;
+
+    int* marx;
+    int *cbr;
+
+    int gg = 9712;
+
+    marx = &gg;
+
+    //     string tmp = exec("echo hello my friend");
+    //     cout << tmp;
+
+    //    std::string str = "Meet the new boss...";
+    //     std::hash<std::string> hash_fn;
+    //     size_t str_hash = hash_fn(str);
+
+    //     std::cout << str_hash << '\n';
+
+    //     test_class();
+
+    //     int counts = 3;
+    //     float result = 0.0;
+    //     for (int i = 1; i <= counts; i++)
+    //     {
+    //         result += 1.0 / i;
+    //     }
+    //     printf("%.2f", result);
+    //     cout << result << endl;
     return 0;
 }
 
